@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react'
-import { TodoContext } from '../../Context'
+import React, { useState } from 'react'
+import { useTodos } from '../../hook/useTodos'
 import '../Modal/Modal.scss'
 import { IoMdClose } from "react-icons/io";
 
-const TodoFrom = () => {
+const TodoFrom = ({openModal, setOpenModal, addTodo}) => {
 
-    const {openModal, setOpenModal, addTodo} = useContext(TodoContext)
+    // const {openModal, setOpenModal, addTodo} = useContext(TodoContext)
     const [newTodoValue, setNewTodoValue] = useState('');
 
     const onSubmit = (event) => {

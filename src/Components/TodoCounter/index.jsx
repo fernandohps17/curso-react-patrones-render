@@ -1,10 +1,6 @@
-import React, { useContext } from 'react'
 import './TodoCounter.scss'
-import { TodoContext } from '../../Context'
 
-const TodoCounter = () => {
-
-    const {completedTodos, totalTodos} = useContext(TodoContext)
+const TodoCounter = ({completedTodos, totalTodos}) => {
 
     return (
         <div className='todo_counter'>
