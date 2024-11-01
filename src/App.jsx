@@ -27,49 +27,52 @@ function App() {
     completedTodos,
     totalTodos,
     searchValue,
-    setSearchValue
+    setSearchValue,
+    addTodos,
   } = useTodos()
 
   return (
     <>
       <Layout>
-        <TodoHeader>
+        <TodoHeader loading={loading}>
           <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
           <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
         </TodoHeader>
 
-        <TodoList 
+        <TodoList
           error={error}
           loading={loading}
           searchedTodos={searchedTodos}
-          searchResults={searchResults}
+          totalTodos={totalTodos}
           onError={() => <TodosError />}
           onLoading={() => <TodosLoading />}
           onEmptyTodos={() => <EmptyTodos />}
           onEmptySearchResults={() => <SearchResultsTodos />}
+
+          // Render Props
           render={todo => (
-            <TodoItem 
-              key={todo.text} 
-              text={todo.text} 
-              completed={todo.completed} 
-              onComplete={() => completeTodo(todo.text)} 
-              onDelete={() => deleteTodo(todo.text)} 
+            <TodoItem
+              key={todo.text}
+              text={todo.text}
+              completed={todo.completed}
+              onComplete={() => completeTodo(todo.text)}
+              onDelete={() => deleteTodo(todo.text)}
             />
           )}
-        />
+        >
 
-        {/* <TodoList>
-          {loading && <TodosLoading />}
-          {error && <TodosError />}
-          {(!loading && searchedTodos.length === 0) && <EmptyTodos />}
-          {
-            searchedTodos.map(todo => (
-              <TodoItem key={todo.text} text={todo.text} completed={todo.completed} onComplete={() => completeTodo(todo.text)} onDelete={() => deleteTodo(todo.text)} />
-            ))
-          }
-        </TodoList> */}
+          {/* Render Funcion */}
+          {/* {todo => (
+            <TodoItem
+              key={todo.text}
+              text={todo.text}
+              completed={todo.completed}
+              onComplete={() => completeTodo(todo.text)}
+              onDelete={() => deleteTodo(todo.text)}
+            />
+          )} */}
 
-
+        </TodoList>
 
         <CreateTodoButton />
 

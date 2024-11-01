@@ -1,22 +1,26 @@
 import React from 'react'
 
 const TodoList = (props) => {
+
+  const renderFunc = props.children || props.render
+
   return (
     <div className='todo_item_spacing'>
       {props.error && props.onError()}
       {props.loading && props.onLoading()}
-      {props.searchResults && props.onSearchResults()}
+      {/* {props.searchResults && props.onEmptySearchResults()} */}
 
-      {(!props.loading && !props.searchedTodos.length) && props.onEmptyTodos()}
-      {(!props.searchResults && !props.searchedTodos.length) && props.onSearchResults()}
+      {(!props.loading && !props.totalTodos) && props.onEmptyTodos()}
+
+      {(!!props.totalTodos && !props.searchedTodos.length) && props.onEmptySearchResults()}
 
       {/* {props.searchedTodos.map(todo => props.render(todo))} */}
-      {props.searchedTodos.map(props.render)}
+      {/* {props.searchedTodos.map(props.render)} */}
+      {props.searchedTodos.map(renderFunc)}
 
-      {props.children}      
+      {/* {props.children}       */}
     </div>
   )
 }
 
 export default TodoList
-// video 10 minuto 3 segundo 40

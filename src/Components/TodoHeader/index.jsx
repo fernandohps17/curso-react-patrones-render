@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { Children, cloneElement } from 'react'
 
-const TodoHeader = ({children}) => {
+const TodoHeader = ({children, loading}) => {
+
     return (
         <header>
-            {children}
+            {
+                Children.toArray(children).map(child => cloneElement(child, { loading: {loading} }))
+            }
         </header>
     )
 }
 
 export default TodoHeader
+// clase 14
