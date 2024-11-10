@@ -1,5 +1,6 @@
 import React from 'react'
-import { useTodos } from './hook/useTodos'
+
+// Components
 import CreateTodoButton from './Components/CreateTodoButton'
 import TodoCounter from './Components/TodoCounter'
 import TodoList from './Components/TodoList'
@@ -13,6 +14,11 @@ import Modal from './Components/Modal'
 import TodoFrom from './Components/TodoFrom'
 import TodoHeader from './Components/TodoHeader'
 import SearchResultsTodos from './Components/SearchResultsTodos'
+import CahngeAlertWithStorageListener from './Components/ChangeAlert'
+
+// Hooks
+import { useTodos } from './hook/useTodos'
+
 
 function App() {
 
@@ -81,6 +87,8 @@ function App() {
             <TodoFrom openModal={openModal} setOpenModal={setOpenModal} addTodo={addTodos} />
           </Modal>
         )}
+
+        <CahngeAlertWithStorageListener />
       </Layout>
     </>
   )

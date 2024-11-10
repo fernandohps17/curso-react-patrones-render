@@ -12,4 +12,3 @@ const TodoHeader = ({children, loading}) => {
 }
 
 export default TodoHeader
-// clase 14
