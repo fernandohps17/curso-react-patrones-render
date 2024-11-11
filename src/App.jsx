@@ -14,7 +14,7 @@ import Modal from './Components/Modal'
 import TodoFrom from './Components/TodoFrom'
 import TodoHeader from './Components/TodoHeader'
 import SearchResultsTodos from './Components/SearchResultsTodos'
-import { ChangeAlertWithStorageListener } from './Components/ChangeAlert'
+import { ChangeAlert } from './Components/ChangeAlert'
 
 // Hooks
 import { useTodos } from './hook/useTodos'
@@ -89,7 +89,7 @@ function App() {
           </Modal>
         )}
 
-        <ChangeAlertWithStorageListener 
+        <ChangeAlert
           sincronize={sincronizedItem}
         />
       </Layout>

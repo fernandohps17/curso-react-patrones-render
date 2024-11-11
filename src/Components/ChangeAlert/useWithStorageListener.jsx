@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-function withStorageListener(WrappedComponent) {
-  return function WrappedComponentWithStorageListener(props) {
+function useWithStorageListener({sincronize}) {
+
     const [storageChange, setStorageChange] = useState(false);
 
     window.addEventListener('storage', (change) => {
@@ -16,14 +16,11 @@ function withStorageListener(WrappedComponent) {
       setStorageChange(false);
     };
 
-    return (
-      <WrappedComponent
-        show={storageChange}
-        toggleShow={setStorageChange}
-      />
-    );
+    return {
+      show: storageChange,
+      toggleShow,
+    } 
   }
-}
 
-export { withStorageListener };
-// video 16
+
+export { useWithStorageListener };
