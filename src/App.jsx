@@ -14,7 +14,7 @@ import Modal from './Components/Modal'
 import TodoFrom from './Components/TodoFrom'
 import TodoHeader from './Components/TodoHeader'
 import SearchResultsTodos from './Components/SearchResultsTodos'
-import CahngeAlertWithStorageListener from './Components/ChangeAlert'
+import { ChangeAlertWithStorageListener } from './Components/ChangeAlert'
 
 // Hooks
 import { useTodos } from './hook/useTodos'
@@ -35,6 +35,7 @@ function App() {
     searchValue,
     setSearchValue,
     addTodos,
+    sincronizedItem
   } = useTodos()
 
   return (
@@ -88,7 +89,9 @@ function App() {
           </Modal>
         )}
 
-        <CahngeAlertWithStorageListener />
+        <ChangeAlertWithStorageListener 
+          sincronize={sincronizedItem}
+        />
       </Layout>
     </>
   )

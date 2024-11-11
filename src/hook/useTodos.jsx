@@ -4,7 +4,7 @@ import { useLocalStorage } from './useLocalStorage';
 function useTodos() {
 
     // setTodo es el saveItem que retorno del localStorage
-    const { item: todos, saveItem: saveTodos, loading, error } = useLocalStorage('TODOS_V1', [])
+    const { item: todos, saveItem: saveTodos, loading, error, sincronizedItem } = useLocalStorage('TODOS_V1', [])
     const [searchValue, setSearchValue] = useState('')
     const [openModal, setOpenModal] = useState(false)
 
@@ -56,7 +56,8 @@ function useTodos() {
         deleteTodo,
         openModal,
         setOpenModal,
-        addTodo
+        addTodo,
+        sincronizedItem
     }
 }
 
